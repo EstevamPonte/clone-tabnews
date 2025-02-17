@@ -4,7 +4,10 @@
   "description": "Implementação do tebnews do curso.dev",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run svcs:up && next dev",
+    "svcs:up": " docker compose -f infra/compose.yaml up -d",
+    "svcs:stop": " docker compose -f infra/compose.yaml stop",
+    "svcs:down": " docker compose -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
