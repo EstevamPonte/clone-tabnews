@@ -16,7 +16,7 @@
     "lint:eslint:check": "next lint --dir .",
     "test": "npm run svcs:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "posttest": "npm run svcs:stop",
-    "test:watch": "jest --watchAll --runInBand",
+    "test:watch": "jest --watchAll --runInBand --verbose",
     "prepare": "husky",
     "commit": "cz"
   },
