@@ -96,6 +96,8 @@ function canRequest(feature) {
   return function canRequestMiddleware(request, response, next) {
     const userTryingToRequest = request.context.user;
 
+    console.log(feature);
+
     if (authorization.can(userTryingToRequest, feature)) {
       return next();
     }
