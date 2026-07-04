@@ -99,6 +99,8 @@ describe("POST /api/v1/sessions", () => {
         password: "tudo-correta",
       });
 
+      await orchestrator.activateUser(createdUser);
+
       const response = await fetch("http://localhost:3000/api/v1/sessions", {
         method: "POST",
         headers: {
@@ -139,7 +141,7 @@ describe("POST /api/v1/sessions", () => {
       const parserSetCookie = setCookieParser(response, {
         map: true,
       });
-      console.log(parserSetCookie);
+
       expect(parserSetCookie.session_id).toEqual({
         name: "session_id",
         value: responseBody.token,
