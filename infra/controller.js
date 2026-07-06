@@ -44,6 +44,7 @@ function setSessionCookie(sessionToken, response) {
     maxAge: session.EXPIRATIONS_IN_MILLISECONDS / 1000,
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
+    sameSite: "lax",
   });
 
   response.setHeader("Set-Cookie", setCookie);
